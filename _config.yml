@@ -1,0 +1,53 @@
+title: PickleLabs
+description: Your ultimate destination for pickleball gear reviews, training plans, videos, and insights from a Vatic Pro, Hesacore, and Ronbus ambassador.
+url: "https://picklelabs.ai"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  reviews:
+    output: true
+    permalink: /reviews/:title/
+  training:
+    output: true
+    permalink: /training/:title/
+  videos:
+    output: true
+    permalink: /videos/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "reviews"
+    values:
+      layout: "review"
+  - scope:
+      path: ""
+      type: "training"
+    values:
+      layout: "training"
+  - scope:
+      path: ""
+      type: "videos"
+    values:
+      layout: "video"
+
+# Social media
+social:
+  name: PickleLabs
+  links:
+    - https://instagram.com/picklelabs
+    - https://youtube.com/@picklelabs
+
+# Author info
+author:
+  name: PickleLabs Ambassador
+  bio: Vatic Pro, Hesacore, and Ronbus Ambassador
