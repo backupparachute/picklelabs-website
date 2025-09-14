@@ -98,6 +98,17 @@
             height: auto;
             object-fit: contain;
         }
+        
+        .paddle-specs {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .badge {
+            font-size: 0.75rem;
+        }
     </style>
     
     {% seo %}
@@ -132,6 +143,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ site.baseurl }}/reviews/">Gear Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ site.baseurl }}/paddles/">Paddle Database</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ site.baseurl }}/training/">Training Plans</a>
@@ -169,6 +183,7 @@
                     <h5>Quick Links</h5>
                     <ul class="list-unstyled">
                         <li><a href="{{ site.baseurl }}/reviews/" class="text-light">Gear Reviews</a></li>
+                        <li><a href="{{ site.baseurl }}/paddles/" class="text-light">Paddle Database</a></li>
                         <li><a href="{{ site.baseurl }}/training/" class="text-light">Training Plans</a></li>
                         <li><a href="{{ site.baseurl }}/videos/" class="text-light">Videos</a></li>
                         <li><a href="{{ site.baseurl }}/about/" class="text-light">About</a></li>
