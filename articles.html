@@ -52,7 +52,7 @@ description: Expert pickleball insights, tips, and strategies to improve your ga
     </div>
     
     <div class="row">
-        <div class="col-md-6 col-lg-4 mb-4">
+        <div class="col-md-6 col-lg-4 mb-4" data-category="fundamentals">
             <div class="card h-100">
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-start mb-3">
@@ -94,16 +94,16 @@ description: Expert pickleball insights, tips, and strategies to improve your ga
             <h3 class="mb-4">Article Categories</h3>
         </div>
         <div class="col-md-3 mb-3">
-            <div class="card text-center">
+            <div class="card text-center category-filter" data-category="fundamentals" style="cursor: pointer;">
                 <div class="card-body">
-                    <i class="bi bi-target text-primary mb-2" style="font-size: 2rem;"></i>
+                    <i class="bi bi-lightbulb text-primary mb-2" style="font-size: 2rem;"></i>
                     <h6 class="card-title">Fundamentals</h6>
                     <p class="card-text small">Basic techniques and habits</p>
                 </div>
             </div>
         </div>
         <div class="col-md-3 mb-3">
-            <div class="card text-center">
+            <div class="card text-center category-filter" data-category="strategy" style="cursor: pointer;">
                 <div class="card-body">
                     <i class="bi bi-lightning text-warning mb-2" style="font-size: 2rem;"></i>
                     <h6 class="card-title">Strategy</h6>
@@ -112,7 +112,7 @@ description: Expert pickleball insights, tips, and strategies to improve your ga
             </div>
         </div>
         <div class="col-md-3 mb-3">
-            <div class="card text-center">
+            <div class="card text-center category-filter" data-category="equipment" style="cursor: pointer;">
                 <div class="card-body">
                     <i class="bi bi-gear text-success mb-2" style="font-size: 2rem;"></i>
                     <h6 class="card-title">Equipment</h6>
@@ -121,7 +121,7 @@ description: Expert pickleball insights, tips, and strategies to improve your ga
             </div>
         </div>
         <div class="col-md-3 mb-3">
-            <div class="card text-center">
+            <div class="card text-center category-filter" data-category="competition" style="cursor: pointer;">
                 <div class="card-body">
                     <i class="bi bi-trophy text-danger mb-2" style="font-size: 2rem;"></i>
                     <h6 class="card-title">Competition</h6>
@@ -131,3 +131,86 @@ description: Expert pickleball insights, tips, and strategies to improve your ga
         </div>
     </div>
 </div>
+
+<style>
+.category-filter {
+    transition: all 0.3s ease;
+}
+
+.category-filter:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.category-filter.active {
+    border: 2px solid var(--primary-color);
+    background-color: rgba(46, 139, 87, 0.1);
+}
+
+.article-card {
+    transition: all 0.3s ease;
+}
+
+.article-card.hidden {
+    display: none !important;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryFilters = document.querySelectorAll('.category-filter');
+    const articleCards = document.querySelectorAll('.col-md-6, .col-lg-4');
+    
+    // Add click event listeners to category filters
+    categoryFilters.forEach(filter => {
+        filter.addEventListener('click', function() {
+            const category = this.dataset.category;
+            
+            // Remove active class from all filters
+            categoryFilters.forEach(f => f.classList.remove('active'));
+            
+            // Add active class to clicked filter
+            this.classList.add('active');
+            
+            // Filter articles
+            filterArticles(category);
+        });
+    });
+    
+    function filterArticles(category) {
+        articleCards.forEach(card => {
+            const cardCategory = card.dataset.category;
+            
+            if (category === 'all' || !cardCategory || cardCategory === category) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+    
+    // Add "Show All" functionality
+    const showAllButton = document.createElement('div');
+    showAllButton.className = 'col-md-3 mb-3';
+    showAllButton.innerHTML = `
+        <div class="card text-center category-filter active" data-category="all" style="cursor: pointer;">
+            <div class="card-body">
+                <i class="bi bi-grid text-secondary mb-2" style="font-size: 2rem;"></i>
+                <h6 class="card-title">All Articles</h6>
+                <p class="card-text small">View all articles</p>
+            </div>
+        </div>
+    `;
+    
+    // Insert "Show All" button at the beginning
+    const categoriesRow = document.querySelector('.row.mt-5 .col-12').parentNode;
+    categoriesRow.insertBefore(showAllButton, categoriesRow.firstChild);
+    
+    // Add click event to "Show All" button
+    showAllButton.querySelector('.category-filter').addEventListener('click', function() {
+        categoryFilters.forEach(f => f.classList.remove('active'));
+        this.classList.add('active');
+        filterArticles('all');
+    });
+});
+</script>
