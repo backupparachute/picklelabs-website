@@ -1,13 +1,13 @@
 # PickleLabs Website
 
-A Jekyll-based website for PickleLabs, featuring gear reviews, training plans, videos, and insights from a Vatic Pro, Hesacore, and Ronbus ambassador.
+A Jekyll-based website for PickleLabs, featuring gear reviews, training plans, videos, and insights from a Pakle, Vatic Pro, Hesacore, and Ronbus ambassador.
 
 ## Features
 
 - **Gear Reviews**: Honest, in-depth reviews of pickleball equipment
 - **Training Plans**: Comprehensive training programs for all skill levels
 - **Video Content**: Instructional videos, reviews, and tournament highlights
-- **Brand Ambassador**: Official ambassador for Vatic Pro, Hesacore, and Ronbus
+- **Brand Ambassador**: Official ambassador for Pakle, Vatic Pro, Hesacore, and Ronbus
 - **Responsive Design**: Built with Bootstrap 5 for mobile-friendly experience
 - **SEO Optimized**: Built-in SEO features and meta tags
 
@@ -113,6 +113,7 @@ tags: [tag1, tag2, tag3]
 
 This website represents official ambassador relationships with:
 
+- **Pakle**: High-end paddle technology at a value price (code `KYLEMILLER`, 15% off)
 - **Vatic Pro**: Premium pickleball paddles and gear
 - **Hesacore**: Revolutionary grip technology
 - **Ronbus**: Innovative training equipment
